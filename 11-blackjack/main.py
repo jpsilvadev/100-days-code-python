@@ -36,6 +36,7 @@ def compare(user_score, computer_score):
     else:
         return "You lose!"
 
+
 def blackjack():
     print(logo)
     user_cards = []
@@ -60,24 +61,23 @@ def blackjack():
         if computer_score == 0 or user_score == 0 or user_score > 21:
             is_game_over = True
         else:
-            should_draw = input("Would you like to draw another card? Type yes or no: ").lower()
+            should_draw = input(
+                "Would you like to draw another card? Type yes or no: "
+            ).lower()
             if should_draw == "yes":
                 user_cards.append(deal_card())
             else:
                 is_game_over = True
 
-
     while computer_score != 0 and computer_score < 17:
         computer_cards.append(deal_card())
         computer_score = calculate_card_score(computer_cards)
-
-
 
     print(f"Your final hand: {user_cards}")
     print(f"Dealer's final hand: {computer_cards}")
     print(compare(user_score, computer_score))
 
+
 while input("Do you want to play a game of Blackjack? Type yes or no: ") == "yes":
     os.system("clear")
     blackjack()
-    
