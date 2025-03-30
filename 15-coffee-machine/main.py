@@ -74,7 +74,7 @@ def main():
                     money += required_money
                     if inserted_money > required_money:
                         print(
-                            f"Here is ${round(inserted_money-required_money, 2)} in change."
+                            f"Here is ${round(inserted_money - required_money, 2)} in change."
                         )
                     make_coffee(coffee["ingredients"])
                     print(f"Here is your {choice}☕. Enjoy!")

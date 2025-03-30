@@ -47,7 +47,6 @@ alphabet = [
 
 print(logo)
 while True:
-
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
 
     if direction not in ["encode", "decode"]:

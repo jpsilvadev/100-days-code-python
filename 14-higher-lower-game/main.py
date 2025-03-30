@@ -17,15 +17,14 @@ while option_b == option_a:
 
 
 while True:
-
     print(
-        f"Compare A: {option_a["name"]}, a {option_a["description"]}, from {option_a["country"]}"
+        f"Compare A: {option_a['name']}, a {option_a['description']}, from {option_a['country']}"
     )
 
     print(vs)
 
     print(
-        f"Compare B: {option_b["name"]}, a {option_b["description"]}, from {option_b["country"]}"
+        f"Compare B: {option_b['name']}, a {option_b['description']}, from {option_b['country']}"
     )
 
     choice = input("Who has more followers? Type 'A' or 'B': ")

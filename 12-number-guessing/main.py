@@ -16,7 +16,6 @@ else:
 num_to_guess = random.randint(1, 100)
 
 while True:
-
     print(f"You have {LIVES} attempts remaining to guess the number.")
     guess = int(input("Make a guess: "))
 
