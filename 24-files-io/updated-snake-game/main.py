@@ -1,4 +1,5 @@
 """SnakeGame"""
+
 from turtle import Screen
 import time
 from snake import Snake
@@ -25,7 +26,6 @@ screen.onkey(key="Right", fun=snake.right)
 
 PLAY_SNAKE = True
 while PLAY_SNAKE:
-
     screen.update()
     time.sleep(0.1)
 
@@ -39,7 +39,12 @@ while PLAY_SNAKE:
         score.update_score()
 
     # detect collision with wall
-    if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
+    if (
+        snake.head.xcor() > 290
+        or snake.head.xcor() < -290
+        or snake.head.ycor() > 290
+        or snake.head.ycor() < -290
+    ):
         score.reset()
         snake.reset()
 

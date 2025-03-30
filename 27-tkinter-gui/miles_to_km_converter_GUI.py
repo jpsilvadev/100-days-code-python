@@ -1,4 +1,5 @@
 from tkinter import Entry, Button, Label, Tk
+
 FONT = ("Arial", 10, "normal")
 
 

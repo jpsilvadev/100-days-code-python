@@ -1,4 +1,5 @@
 """Creates a food object for the SnakeGame"""
+
 from turtle import Turtle
 import random
 

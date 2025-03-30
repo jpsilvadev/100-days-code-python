@@ -32,7 +32,8 @@ guessed_states = []
 while score < 50:
     # check answer and display state on Screen
     answer_state = screen.textinput(
-        title=f"{score}/50 States", prompt="What's another state's name?")
+        title=f"{score}/50 States", prompt="What's another state's name?"
+    )
     answer_state = answer_state.title()
     if answer_state == "Exit":
         break

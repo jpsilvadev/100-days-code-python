@@ -29,7 +29,6 @@ if user_bet:
     IS_RACE_ON = True
 
 while IS_RACE_ON:
-
     for turtle in all_turtles:
         if turtle.xcor() > 230:
             IS_RACE_ON = False

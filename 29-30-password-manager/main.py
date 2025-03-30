@@ -1,4 +1,5 @@
 """Password manager module"""
+
 import json
 import random
 from tkinter import *
@@ -11,17 +12,66 @@ import pyperclip
 
 def generate_password():
     """Generate user password and automatically copy it to clipboard"""
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
-               'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+    letters = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+    ]
+    numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+"]
 
-    password_letters = [random.choice(letters)
-                        for _ in range(random.randint(8, 10))]
-    password_symbols = [random.choice(symbols)
-                        for _ in range(random.randint(2, 4))]
-    password_numbers = [random.choice(numbers)
-                        for _ in range(random.randint(2, 4))]
+    password_letters = [random.choice(letters) for _ in range(random.randint(8, 10))]
+    password_symbols = [random.choice(symbols) for _ in range(random.randint(2, 4))]
+    password_numbers = [random.choice(numbers) for _ in range(random.randint(2, 4))]
 
     password_list = password_letters + password_symbols + password_numbers
 
@@ -30,6 +80,7 @@ def generate_password():
     password = "".join(password_list)
     password_entry.insert(0, string=password)
     pyperclip.copy(password)
+
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
@@ -41,16 +92,13 @@ def save_password():
     email = email_entry.get()
     password = password_entry.get()
 
-    new_data = {
-        website: {
-            "email": email,
-            "password": password
-        }
-    }
+    new_data = {website: {"email": email, "password": password}}
 
     if website == "" or password == "":
-        messagebox.showinfo(title="Password Manager",
-                            message="I found empty fields, please fill them out.")
+        messagebox.showinfo(
+            title="Password Manager",
+            message="I found empty fields, please fill them out.",
+        )
     else:
         try:
             with open("data.json", "r") as data_file:
@@ -70,6 +118,7 @@ def save_password():
             website_entry.delete(0, END)
             password_entry.delete(0, END)
 
+
 # ---------------------------- FIND PASSWORD ------------------------------- #
 
 
@@ -79,15 +128,24 @@ def find_password():
             # reading old data
             data = json.load(data_file)
     except FileNotFoundError:
-        messagebox.showinfo(title="Password Manager",
-                            message="No data file found. Create one by adding a new password.")
+        messagebox.showinfo(
+            title="Password Manager",
+            message="No data file found. Create one by adding a new password.",
+        )
     else:
         try:
-            messagebox.showinfo(title="Password Manager", message=f"Website: \
-{data[website_entry.get()]['email']}\n Password: {data[website_entry.get()]['password']}")
+            messagebox.showinfo(
+                title="Password Manager",
+                message=f"Website: \
+{data[website_entry.get()]['email']}\n Password: {data[website_entry.get()]['password']}",
+            )
         except KeyError:
             messagebox.showinfo(
-                title="Password Manager", message="No details for the website in the data file.")
+                title="Password Manager",
+                message="No details for the website in the data file.",
+            )
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 
@@ -125,8 +183,9 @@ password_entry.grid(row=3, column=1)
 
 # Create Buttons
 
-generate_password = Button(text="Generate Password",
-                           width=16, command=generate_password)
+generate_password = Button(
+    text="Generate Password", width=16, command=generate_password
+)
 generate_password.grid(row=3, column=3)
 
 add = Button(text="Add", width=42, command=save_password)
