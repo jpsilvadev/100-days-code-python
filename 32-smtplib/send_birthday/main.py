@@ -18,8 +18,8 @@ random_num = random.randint(1, 2)
 with open(f"letter_templates/letter_{random_num}.txt") as file:
     letter = file.read().replace("[NAME]", birthday_dict[0]["name"])
 
-my_email = "jpsjoaosilvadevtesting@gmail.com"
-my_password = "lnfdapiprqqohzbf"
+my_email = "SOMEEMAIL@gmail.com"
+my_password = "SOMEPASSWORD"
 
 with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
     connection.starttls()
