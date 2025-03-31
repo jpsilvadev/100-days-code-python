@@ -10,7 +10,6 @@ from datetime import datetime
 
 # print(iss_position)
 
-
 params = {"lat": 51.507351, "lng": -0.127758, "formatted": 0}
 
 response = requests.get(url=" https://api.sunrise-sunset.org/json", params=params)
